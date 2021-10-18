@@ -4,7 +4,7 @@
 
 @endsection
 @section('plugin-js')
-
+<script src="../assets/js/pages/form-validation.init.js"></script>
 @endsection
 
 @section('content')
@@ -35,20 +35,29 @@
                 <h4 class="mt-0">Sign In</h4>
                 <p class="text-muted mb-4">Enter your email address and password to access account.</p>
 
-                <!-- form -->
-                <form action="app/Controller/loginController.php" method="post">
-                    <div class="form-group">
 
+                <div class="invalid-feedback">Please provide a valid city.</div>
+                <!-- form -->
+                <form action="{{ route('login') }}" method="post">
+                    @csrf
+
+                    <div class="form-group">
+                        @error('username')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="emailaddress">Email address</label>
-                        <input class="form-control" type="email" name="username" id="emailaddress" required="" placeholder="Enter your email">
+                        <input class="form-control" type="email" name="username" id="emailaddress" value="{{ old('username') }}" required="" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
                         <a href="auth-recoverpw-2.php" class="text-muted float-right"><small>Forgot your password?</small></a>
                         <label for="password">Password</label>
                         <div class="input-group input-group-merge">
-                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password">
+                            <input type="password" name="password" id="password" class="form-control" value="{{ old('password') }}" placeholder="Enter your password">
                             <div class="input-group-append" data-password="false">
                                 <div class="input-group-text">
                                     <span class="password-eye"></span>
