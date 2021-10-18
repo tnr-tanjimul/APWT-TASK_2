@@ -16,8 +16,22 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('pages.home');
-});
+})->name('home');
 
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
+
+
+Route::get('/contact-us', function () {
+    return view('pages.contact-us');
+})->name('contact-us');
 
 
 
