@@ -36,19 +36,33 @@
                 <p class="text-muted mb-4">Don't have an account? Create your account, it takes less than a minute</p>
 
                 <!-- form -->
-                <form action="#">
+                <form action="{{ route('registration') }}" method="post">
+
+                    @csrf
+
+                    <div class="form-group">
+                        @error('fullname')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <div class="form-group">
                         <label for="fullname">Full Name</label>
-                        <input class="form-control" type="text" id="fullname" placeholder="Enter your name" required>
+                        <input class="form-control" type="text" id="fullname" name="fullname" placeholder="Enter your name" required>
                     </div>
                     <div class="form-group">
                         <label for="emailaddress">Email address</label>
-                        <input class="form-control" type="email" id="emailaddress" required placeholder="Enter your email">
+                        <input class="form-control" type="email" name="email" required placeholder="Enter your email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <div class="input-group input-group-merge">
-                            <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password">
                             <div class="input-group-append" data-password="false">
                                 <div class="input-group-text">
                                     <span class="password-eye"></span>
@@ -58,7 +72,7 @@
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="checkbox-signup">
+                            <input type="checkbox" name="terms" class="custom-control-input" id="checkbox-signup">
                             <label class="custom-control-label" for="checkbox-signup">I accept <a href="javascript: void(0);" class="text-dark">Terms and Conditions</a></label>
                         </div>
                     </div>
@@ -88,7 +102,7 @@
 
                 <!-- Footer-->
                 <footer class="footer footer-alt">
-                    <p class="text-muted">Already have account? <a href="auth-login-2.html" class="text-muted ml-1"><b>Log In</b></a></p>
+                    <p class="text-muted">Already have account? <a href="{{ route('login') }}" class="text-muted ml-1"><b>Log In</b></a></p>
                 </footer>
 
             </div> <!-- end .card-body -->
