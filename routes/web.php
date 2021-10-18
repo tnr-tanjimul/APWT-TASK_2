@@ -36,7 +36,6 @@ Route::get('/contact-us', function () {
 
 
 
-Route::get('/product/list',[ProductController::class,'list'])->name('student.list');
-Route::get('/product/list',[ProductController::class,'list'])->name('student.list');
-Route::get('/product/delete/{id}',[ProductController::class,'delete']);
-
+Route::get('/product/list', [ProductController::class, 'list'])->name('student.list');
+Route::get('/product/list', [ProductController::class, 'list'])->name('student.list');
+Route::get('/product/delete/{id}', [ProductController::class, 'delete']);
