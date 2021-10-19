@@ -4,7 +4,6 @@
 
 @endsection
 @section('plugin-js')
-<script src="../assets/js/pages/form-validation.init.js"></script>
 @endsection
 
 @section('content')
@@ -100,7 +99,7 @@
 
                 <!-- Footer-->
                 <footer class="footer footer-alt">
-                    <p class="text-muted">Don't have an account? <a href="auth-register-2.php" class="text-muted ml-1"><b>Sign Up</b></a></p>
+                    <p class="text-muted">Don't have an account? <a href="{{ route('registration') }}" class="text-muted ml-1"><b>Sign Up</b></a></p>
                 </footer>
 
             </div> <!-- end .card-body -->

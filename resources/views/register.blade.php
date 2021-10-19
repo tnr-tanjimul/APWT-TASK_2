@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-@section('title', 'Page Title')
+@section('title', 'Registration')
 @section('plugin-css')
 
 @endsection
